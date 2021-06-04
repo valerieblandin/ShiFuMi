@@ -1,0 +1,840 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'FingerPaint-Regular';
+    src: url(../font/finger-paint/FingerPaint-Regular.ttf);
+}
+@font-face {
+    font-family: 'PrincessSofia-Regular';
+    src: url(../font/princess-sofia/PrincessSofia-Regular.ttf);
+}
+/* ACCUEIL */
+#gameAccueil {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-color: seagreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+#titleAccueil{
+    font-family: PrincessSofia-Regular;
+    font-size: 3em;
+    color : rgba(219, 107, 63, 0.8);
+}
+#textPres{
+    width: 50vw;
+    height: auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    color : rgb(43, 18, 8);
+    font-family: FingerPaint-Regular;
+}
+#paraBienvenue{
+    margin: 10px;
+}
+#paraRegle{
+    margin: 10px;
+}
+#btnBegin{
+    padding: 15px;
+    width: 30vw;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: rgba(219, 107, 63, 0.5);
+    font-family: PrincessSofia-Regular;
+    color: rgb(43, 18, 8);
+    font-size: 2.5em;
+    cursor: pointer;
+}
+@keyframes mon_anim{
+    0%{
+        transform: translateY(20vh);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }}
+#textPres
+    {
+    animation-name: mon_anim;
+    animation-duration: 3000ms;
+    animation-delay: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1
+    }
+/* JEU */
+#gameArena {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-color: seagreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#plateau {
+    width: 100%;   
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+}
+#zoneScore {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+}
+#scoreOrdi {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#scoreJoueur {
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#zoneJeu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#choixOrdi {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: solid 2px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#choixJoueur {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: solid 2px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#zoneChoix {
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#zoneChoix button{
+    display: none;
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    background-color: transparent;
+}
+#rose img, #main img, #cetoine img {
+    height: 120px;
+}
+.drag {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+/*Mise en forme textes*/
+h2{
+    font-family: FingerPaint-Regular;
+    font-size: 2.5em;
+    color: rgb(219, 107, 63);
+    text-shadow: 5px 5px 5px  rgb(43, 18, 8);
+}
+#zoneScore p{
+    font-family: PrincessSofia-Regular;
+    font-size: 5em;
+    color: rgb(219, 107, 63);
+    text-shadow: 5px 5px 5px  rgb(43, 18, 8);
+}
+#choixOrdi p {
+    font-family: FingerPaint-Regular;
+    font-size: 2em;
+    color :rgb(66, 29, 14);
+    text-align: center;
+}
+#choixJoueur p {
+    font-family: FingerPaint-Regular;
+    font-size: 2em;
+    color :rgb(66, 29, 14);
+    text-align: center;
+    padding-top: 25%;
+}
+#resultat p{
+    text-align: center;
+}
+/*Timer*/
+#timer {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+}
+#timer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    font-size: 25em;
+    font-family: FingerPaint-Regular;
+    color : rgba(219, 107, 63, 0.8);
+    opacity: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+@keyframes timerAnim {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+@keyframes resultatAnim {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    10% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+#timer.on > #three p {
+    animation: timerAnim 1s forwards;
+}
+#timer.on > #two p {
+    animation: timerAnim 1s 1s forwards;
+}
+#timer.on > #one p{
+    animation: timerAnim 1s 2s forwards;
+}
+#timer.on > #resultat p{
+    font-size: 10em;
+    animation: resultatAnim 2s 3s forwards;
+}
+
+/* Backgrounds images */
+#choixJoueur.rose {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/rose.png);
+    background-size: contain;
+}
+#choixJoueur.main {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/main.png);
+    background-size: contain;
+}
+#choixJoueur.cetoine {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/cetoine.png);
+    background-size: contain;
+}
+#choixOrdi.rose {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/rose.png);
+    background-size: contain;
+}
+#choixOrdi.main {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/main.png);
+    background-size: contain;
+    transform: rotate(180deg);
+}
+#choixOrdi.cetoine {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(../img/cetoine.png);
+    background-size: contain;
+    transform: rotate(180deg);
+}
+
+/* Animations */
+#fightAnimation {
+    position: fixed;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(../img/background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    opacity: 0;
+}
+@keyframes fondScores {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+#gameArena.score #fightAnimation {
+    animation: fondScores 2s;
+}
+#ordiAnimation {
+    position: relative;
+    top: 0;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+#ordiAnimation #animationContainerOrdi { 
+    position: absolute;
+    height: 50vh;
+    width: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#playerAnimation {
+    position: relative;
+    bottom: 0;
+    height: 50%; 
+    width: 100%;  
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+#playerAnimation #animationContainer { 
+    position: absolute;
+    height: 50vh;
+    width: 50vh;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+@keyframes roseWin {
+    0% {
+        transform: rotate(0);
+        background-image: url(../img/rose.png);
+    }
+    60% {
+        transform: translate(5vh, -15vh) rotate(80deg) ;
+        background-image: url(../img/rose.png);
+    }
+    100% {
+        transform: translate(translate(5vh, -15vh));
+        background-image: url(../img/rose.png);
+    }
+}
+@keyframes roseEq {
+    0% {
+        background-image: url(../img/rose.png);
+    }
+    70% {
+        background-image: url(../img/rose_ouverte.png);
+    }
+    100% {
+        background-image: url(../img/rose_ouverte.png);
+    }
+}
+@keyframes roseLoose {
+    0% {
+        background-image: url(../img/rose.png)
+    }
+    49% {
+        background-image: url(../img/rose.png)
+    }
+    50% {
+        background-image: url(../img/rose_fanee.png)
+    }
+    100% {
+        background-image: url(../img/rose_fanee.png)
+    }
+}
+@keyframes roseWinOrdi {
+    0% {
+        transform: rotate(0);
+        background-image: url(../img/rose.png);
+    }
+    60% {
+        transform: translateY(15vh) rotate(225deg) ;
+        background-image: url(../img/rose.png);    
+    }
+    100% {
+        transform: translateY(15vh) rotate(225deg) ;
+        background-image: url(../img/rose.png);
+    }
+}
+@keyframes roseEqOrdi {
+    0% {
+        background-image: url(../img/rose.png);
+    }
+    70% {
+        background-image: url(../img/rose_ouverte.png);
+    }
+    100% {
+        background-image: url(../img/rose_ouverte.png);
+    }
+}
+@keyframes roseLooseOrdi {
+    0% {
+        background-image: url(../img/rose.png)
+    }
+    49% {
+        background-image: url(../img/rose.png)
+    }
+    50% {
+        background-image: url(../img/rose_fanee.png)
+    }
+    100% {
+        background-image: url(../img/rose_fanee.png)
+    }
+}
+@keyframes mainWin {
+    0% {
+        background-image: url(../img/main.png);
+        transform: translateY(0);
+    }
+    40% {
+        background-image: url(../img/main.png);
+        transform: translateY(25vh);
+    }
+    50% {     
+        transform: translateY(-25vh);
+    }
+    100% {
+        background-image: url(../img/main.png);
+        transform: translateY(-15vh);
+    }
+}
+@keyframes mainEq {
+    0% {
+        background-image: url(../img/main.png);
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10vh);
+    }
+    100% {
+        background-image: url(../img/main.png);
+        transform: translateY(-11vh);
+    }
+}
+@keyframes mainLoose {
+    0% {
+        background-image: url(../img/main.png);
+        transform: translateY(0);
+    }
+    30% {
+        background-image: url(../img/main_doigt.png);
+        transform: translateY(10vh);
+    }
+    55% {
+        transform: translateY(0);
+    }
+    60% {
+        background-image: url(../img/main_doigt.png);
+        transform: translateY(-8vh);
+    }
+    65% {
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(10vh);
+    }
+}
+@keyframes mainWinOrdi {
+    0% {
+        background-image: url(../img/mainordi.png);
+        transform: translateY(0);
+    }
+    40% {       
+        transform: translateY(-25vh);
+    }
+    50% {     
+        transform: translateY(25vh);
+    }
+    100% {
+        background-image: url(../img/mainordi.png);
+        transform: translateY(15vh);
+    }
+}
+@keyframes mainEqOrdi {
+    0% {
+        background-image: url(../img/mainordi.png);     
+        transform: translateY(0);
+    }
+    50% {         
+        transform: translateY(-10vh);
+    }
+    100% {
+        background-image: url(../img/mainordi.png); 
+        transform: translateY(11vh);
+    }
+}
+@keyframes mainLooseOrdi {
+    0% {
+        background-image: url(../img/mainordi.png);
+        transform: translateY(0);
+    }
+    30% {
+        background-image: url(../img/main_doigtOrdi.png);
+        transform: translateY(-10vh);
+    }
+    55% {
+        transform: translateY(0);
+    }
+    60% {
+        background-image: url(../img/main_doigtOrdi.png);
+        transform: translateY(10vh);
+    }
+    65% {
+        transform: translateY(0);
+    }
+    100%{
+        transform: translateY(-10vh);
+    }
+    
+}
+@keyframes cetoineWin {
+    0% {
+        z-index: 2;
+        background-image: url(../img/cetoine.png);
+    }
+    20% {
+        z-index: 2;
+        background-image: url(../img/cetoineAvecAile.png);
+        transform: translateY(0);
+        
+    }
+    30% {
+        z-index: 2;
+        transform: translateY(-50vh);
+        background-image: url(../img/cetoine.png);
+    }
+    50% {
+        z-index: 2;
+        transform: translateY(-50vh);
+        background-image: url(../img/cetoineAvecAile.png);
+    }
+    100% {
+        z-index: 2;
+        transform: translateY(-150vh);
+        background-image: url(../img/cetoineAvecAile.png);
+    }
+}
+@keyframes cetoineEq {
+    0% {
+        background-image: url(../img/cetoine.png)
+    }
+    30% {
+        background-image: url(../img/cetoineAvecAile.png);
+    }
+    35% {
+        transform: rotate(0) translate(0, 0);
+    }
+    40% {
+        transform: rotate(-40deg) translate(0, 0);
+    }
+    100% {
+        background-image: url(../img/cetoineAvecAile.png);
+        transform: rotate(0) translate(-50vw, -100vh);
+    }
+}
+@keyframes cetoineLoose {
+    0% {
+        background-image: url(../img/cetoine.png)
+    }
+    40% {
+        background-image: url(../img/cetoineAvecAile.png);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    70% {
+        background-image: url(../img/cetoineAvecAile.png);
+        transform: translate(-30vh, 50vh);
+    }
+    100% {
+        background-image: url(../img/cetoineAvecAile.png);
+        transform: translate(-30vh, 50vh);
+    }
+}
+@keyframes cetoineWinOrdi {
+    0% {
+        z-index: 2;
+        background-image: url(../img/cetoineOrdi.png);
+    }
+    20% {
+        z-index: 2;
+        background-image: url(../img/cetoineAvecAileOrdi.png);
+        transform: translateY(0);
+    }
+    30% {
+        z-index: 2;
+        transform: translateY(50vh);
+        background-image: url(../img/cetoineOrdi.png);
+    }
+    50% {
+        z-index: 2;
+        transform: translateY(50vh);
+        background-image: url(../img/cetoineAvecAileOrdi.png);
+    }
+    100% {
+        z-index: 2;
+        transform: translateY(150vh);
+        background-image: url(../img/cetoineAvecAileOrdi.png);
+    }
+}
+@keyframes cetoineEqOrdi {
+    0% {
+        background-image: url(../img/cetoine.png)
+    }
+    30% {
+        background-image: url(../img/cetoineAvecAileOrdi.png);
+    }
+    35% {
+        transform: rotate(0) translate(0, 0);
+    }
+    40% {
+        transform: rotate(-40deg) translate(0, 0);
+    }
+    100% {
+        background-image: url(../img/cetoineAvecAileOrdi.png);
+        transform: rotate(0) translate(50vw, 100vh);
+    }
+}
+@keyframes cetoineLooseOrdi {
+    0% {
+        background-image: url(../img/cetoineOrdi.png)
+    }
+    40% {
+        background-image: url(../img/cetoineAvecAileOrdi.png);
+    }
+    50% {
+        transform: translate(0, 0);
+    }
+    70% {
+        background-image: url(../img/cetoineAvecAileOrdi.png);
+        transform: translate(30vh, -50vh);
+    }
+    100% {
+        background-image: url(../img/cetoineAvecAileOrdi.png);
+        transform: translate(30vh, -50vh);
+    }
+}
+/*Animations Ordinateur*/
+#ordiAnimation.win.rose #animationContainerOrdi { 
+    animation: roseWinOrdi 2s ;
+}
+#ordiAnimation.eq.rose #animationContainerOrdi { 
+    animation: roseEqOrdi 2s ;
+}
+#ordiAnimation.loose.rose #animationContainerOrdi { 
+    animation: roseLooseOrdi 2s ;
+}
+
+#ordiAnimation.win.cetoine #animationContainerOrdi { 
+    animation: cetoineWinOrdi 2s ;
+}
+#ordiAnimation.eq.cetoine #animationContainerOrdi { 
+    animation: cetoineEqOrdi 2s ;
+}
+#ordiAnimation.loose.cetoine #animationContainerOrdi { 
+    animation: cetoineLooseOrdi 2s ;
+}
+
+#ordiAnimation.win.main #animationContainerOrdi { 
+    animation: mainWinOrdi 2s ;
+}
+#ordiAnimation.eq.main #animationContainerOrdi { 
+    animation: mainEqOrdi 2s ;
+}
+#ordiAnimation.loose.main #animationContainerOrdi { 
+    animation: mainLooseOrdi 2s;
+}
+
+/*Animations Joueur*/
+#playerAnimation.win.rose #animationContainer { 
+    animation: roseWin 2s ;
+}
+#playerAnimation.eq.rose #animationContainer { 
+    animation: roseEq 2s ;
+}
+#playerAnimation.loose.rose #animationContainer { 
+    animation: roseLoose 2s;
+}
+
+#playerAnimation.win.cetoine #animationContainer { 
+    animation: cetoineWin 2s ;
+}
+#playerAnimation.eq.cetoine #animationContainer { 
+    animation: cetoineEq 2s ;
+}
+#playerAnimation.loose.cetoine #animationContainer { 
+    animation: cetoineLoose 2s ;
+}
+
+#playerAnimation.win.main #animationContainer { 
+    animation: mainWin 2s ;
+}
+#playerAnimation.eq.main #animationContainer { 
+    animation: mainEq 2s ;
+}
+#playerAnimation.loose.main #animationContainer { 
+    animation: mainLoose 2s ;
+}
+#pageFinAnimation{
+    animation: fadePageFin 2s ;
+}
+@keyframes fadePageFin {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* PAGE DE FIN */
+#pageFin {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} 
+#pageFinAnimation{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/background.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-color: seagreen;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#pageFin p{
+    font-family: FingerPaint-Regular;
+    font-size: 4em;
+    color :rgb(96, 166, 212);
+    text-align: center;
+    text-shadow: 5px 5px 5px  rgb(43, 18, 8);
+}
+#btnRetour{
+    padding: 15px;
+    width: 40vw;
+    border-radius: 50%;
+    margin-top: 20px;
+    background-color: rgba(219, 107, 63, 0.5);
+    font-family: PrincessSofia-Regular;
+    font-size: 2.3em;
+    color: rgb(43, 18, 8);
+    cursor: pointer;
+}
+/*******************************************Media Queries***********************************************/
+@media screen and (max-width: 1024px){
+    #btnBegin{
+        width: 35vw;
+    }
+    #zoneChoix button {
+        display: block;
+    }
+    #plateau {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #choixOrdi, #choixJoueur {
+        display: none;
+    }
+    #timer p {
+        font-size: 7em;
+        color :rgb(94, 155, 54);
+        text-shadow: 5px 5px 5px  rgb(43, 18, 8);
+    }
+    #timer.on #resultat p {
+        text-align: center;
+        font-size: 5em;
+    }
+    #textPres{
+        width: 75vw;
+        font-size: 1em;
+    }
+    #btnRetour{
+        font-size: 2em;
+    }
+}

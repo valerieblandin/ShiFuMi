@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="assets/img/rose_ouverte.png">
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Shifumi au jardin</title>
+</head>
+<body>
+    <!-- ACCUEIL -->
+    <div id="gameAccueil">
+        <div id="textPres">
+            <h1 id="titleAccueil">Shifumi au jardin</h1>
+            <p id="paraBienvenue"> Bienvenue à toi, amoureux.se du jardin.</p>
+            <p id="paraRegle"> <br>Pour que la rose s'épanouisse librement, <br> voici quelques règles : 
+            <div>
+                <br> La cétoine fait dépérir la fleur. <br>
+                Tu peux éloigner la cétoine de la rose. <br>
+                Mais attention, la rose peut te piquer !</p> <br>
+                <p>La partie se joue en 3 manches gagnantes.</p> <br>
+                <p>Amuse-toi bien et... bonne chance !</p>
+            </div>
+            <button id="btnBegin" type="button">Jouer !</button>
+        </div>
+    </div>
+     <!-- JEU -->
+    <div id="gameArena">
+
+        <div id="plateau">
+            <div id="zoneScore">
+                <div id="scoreOrdi">
+                    <h2>Kiki l'ordi :</h2>
+                    <p id="victoireOrdi">0</p>
+                </div>
+                <div id="scoreJoueur">
+                    <h2>Toi :</h2>
+                    <p id="victoireJoueur">0</p>
+                </div>
+            </div>
+            <div id="zoneJeu">
+                <div id="choixOrdi">
+                    <p>Que va choisir Kiki l'ordi?</p>
+                </div>
+                <div id="choixJoueur">
+                    <div id="animation"></div>
+                    <p>Dépose ton choix.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="zoneChoix">
+            <div id="rose" class="drag">
+                <button class="rose"></button>
+                <img class="ui-draggable" src="assets/img/rose.png" alt="rose">
+            </div>
+            <div id="main" class="drag">
+                <button class="main"></button>
+                <img class="ui-draggable" src="assets/img/main.png" alt="rose">
+            </div>
+            <div id="cetoine" class="drag">
+                <button class="cetoine"></button>
+                <img class="ui-draggable" src="assets/img/cetoine.png" alt="rose">
+            </div>
+        </div>
+
+        <div id="timer">
+            <div id="three">
+                <p>3</p>
+            </div>
+            <div id="two">
+                <p>2</p>
+            </div>
+            <div id="one">
+                <p>1</p>
+            </div>
+            <div id="resultat">
+                <p></p>
+            </div>
+        </div>
+
+        <div id="fightAnimation">
+            <div id="ordiAnimation">
+                <div id="animationContainerOrdi">
+                </div>
+            </div>
+            <div id="playerAnimation">
+                <div id="animationContainer">
+                </div>            
+            </div>
+        </div>
+    </div>
+    <!--page de fin-->
+    <div id="pageFin">
+        <div id="pageFinAnimation">
+            <p></p>
+            <button id="btnRetour" type="button">Pour recommencer une partie, <br> clique ici!</button>
+        </div>
+    </div>
+
+
+    <!--Script-->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
